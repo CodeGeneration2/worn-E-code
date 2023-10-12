@@ -1,4 +1,4 @@
-# Efficient-Code-Generation-with-E-Code
+# Efficient-Code-Generation-with-E-code
 
 
 ## How to Use
@@ -93,12 +93,12 @@ Each amount of data has a problem text, a low-efficiency code, and a high-effici
 
 
 ## Diagrammatic figure
-In the Efficient-Code-Generation-with-E-Code work, the diagrammatic figure is in the [Diagrammatic figure folder](https://github.com/CodeGeneration2/Diagrammatic-figure/tree/main/Diagrammatic%20figure).
+In the Efficient-Code-Generation-with-E-code work, the diagrammatic figure is in the [Diagrammatic figure folder](https://github.com/CodeGeneration2/Diagrammatic-figure/tree/main/Diagrammatic%20figure).
 
 
 
 ## Generated code has been predicted
-In the Efficient-Code-Generation-with-E-Code work, the authors use a fine-tuned pre-trained model to predict a range of codes to be generated. 
+In the Efficient-Code-Generation-with-E-code work, the authors use a fine-tuned pre-trained model to predict a range of codes to be generated. 
 Due to the need for comparative experiments, three code generation models are available. 
 The three code generation models are E-code 350M, GPT-Neo 125M, and No expert group E-code 350M. 
 We use each of the three fine-tuned code generation models to generate codes. 
