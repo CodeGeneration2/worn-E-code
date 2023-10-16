@@ -40,9 +40,3 @@ All model parameters are [here](https://drive.google.com/drive/folders/18tg9mTBZ
 
 ## CodeExecTimeDB
 CodeExecTimeDB are [here](https://drive.google.com/file/d/1tR3R9Mf9thXBUszMo34Pmdli0K4savjp/view?usp=sharing).
-
-## Diagrammatic figure
-In the Efficient-Code-Generation-with-E-code work, the diagrammatic figure is in the [Diagrammatic figure folder](https://github.com/CodeGeneration2/Diagrammatic-figure/tree/main/Diagrammatic%20figure).
-
-
-
