@@ -1,6 +1,8 @@
-https://drive.google.com/file/d/1tR3R9Mf9thXBUszMo34Pmdli0K4savjp/view?usp=sharing
+
 
 # Efficient-Code-Generation-with-E-code
+
+![E-code模型图](https://github.com/CodeGeneration2/E-code/assets/95161813/e98eff5e-b891-4953-bb71-44aacbf39fa5)
 
 ## How to Use
 
@@ -31,6 +33,9 @@ Set Command_line_parameters.task = 1 to train the No-expert-E-code model.
 
 ## Model parameters
 All model parameters are [here](https://drive.google.com/drive/folders/18tg9mTBZ3E6bmpnoelMbYqMo_o3B76bX?usp=sharing).
+
+## CodeExecTimeDB
+CodeExecTimeDB are [here](https://drive.google.com/file/d/1tR3R9Mf9thXBUszMo34Pmdli0K4savjp/view?usp=sharing).
 
 ## Diagrammatic figure
 In the Efficient-Code-Generation-with-E-code work, the diagrammatic figure is in the [Diagrammatic figure folder](https://github.com/CodeGeneration2/Diagrammatic-figure/tree/main/Diagrammatic%20figure).
