@@ -17,6 +17,55 @@ Results: Upon systematic evaluation, E-code achieved a 57% improvement in code e
 Conclusion: The research findings indicate that the expert encoder group can effectively handle various inputs in efficiency optimization tasks, significantly enhancing the model's performance. In summary, this study paves new avenues for developing systems and methods to assist programmers in writing efficient code.
 
 
+
+## ExecTimePredictor
+ 
+To effectively predict the running time of code, we introduced the ExecTimePredictor. In the generation of
+efficient code, the running time of the code serves as a crucial metric for evaluating its efficiency. A short running
+time indicates efficient code, while a long running time implies inefficiency. However, a significant issue arises if the
+generated code cannot compile, making it challenging to ascertain its efficiency. Given the current limitations of LMs
+in ensuring the functional correctness of generated code, and the fact that code which might be fixed with minor token
+adjustments still holds potential value, this paper seeks solutions to reasonably assess the efficiency of such code. To
+address this issue, we introduce ExecTimePredictor, a tool capable of predicting the execution time of uncompileable
+code.
+
+We employed DeepSeek-Coder, a cutting-edge code LLM, as the foundational model for ExecTimePredictor.
+DeepSeek-Coder surpasses existing code LLMs such as Code Llama and Star Coder. We selected version DeepSeekCoder-v1.5 7B, which is based on DeepSeek-LLM-7B and additionally pretrained on an extra 2 trillion tokens. To
+ensure ExecTimePredictor’s effectiveness on both executable and non-executable code, we created a datasetspecifically
+for fine-tuning ExecTimePredictor. We crawled and preprocessed the necessary code data, as detailed in the following
+steps:
+
+• We extracted a large volume of code data from the CodeForces website, which underwent preprocessing such
+as removing code that could not generate an AST, failed I/O tests, or was excessively long.
+
+• Given that the runtime data provided by CodeForces was not sufficiently precise, we recalculated the execution
+times. By wrapping the code in functions and recording the time taken to call these functions, we significantly
+enhanced the precision of our execution time measurements, converting the units from milliseconds to
+microseconds.
+
+• We divided the test set according to the submission times on the website to prevent data leakage.
+
+Ultimately, we compiled the CodeExecTimeDB, which contains a total of 147,677 entries, 16,662 of which are
+designated as the test set. Depending on different needs, we created four distinct dataset variants, as follows:
+
+• CodeExecTimeDB-Ori: The original version, without any modifications.
+
+• CodeExecTimeDB-Uni: Builds on CodeExecTimeDB-Ori by standardizing variable and function names (e.g.,
+renaming variables to var1). Since differences in variable and function names do not affect execution time, this
+helpsto reduce noise interference. Additionally, asthe GEC dataset isinsensitive to variable and function names,
+the fine-tuned model produces code with uniform naming conventions. Therefore, ExecTimePredictor is trained
+to handle such code.
+
+• CodeExecTimeDB-Loop&Rec: Based on CodeExecTimeDB-Uni, retains only loop and recursion statements.
+These elements often account for a significant portion of the code’s execution time and remain relevant even if
+the overall code is non-executable. This variant aims to teach the model to infer the overall code execution time
+solely from loops and recursion.
+
+• CodeExecTimeDB-RandDel: Builds on CodeExecTimeDB-Uni by randomly deleting 20% of code tokens. This
+random deletion mimics non-executable code more closely, further ensuring ExecTimePredictor’s effectiveness
+on such code.
+
+
 ## How to Use
 
 ### Implementation Train the model -> predict the generated code -> perform IO test on the generated code.
@@ -46,6 +95,8 @@ Set Command_line_parameters.task = 1 to train the No-expert-E-code model.
 
 ## Model parameters
 All model parameters are [here](https://drive.google.com/drive/folders/18tg9mTBZ3E6bmpnoelMbYqMo_o3B76bX?usp=sharing).
+
+
 
 ## CodeExecTimeDB
 CodeExecTimeDB are [here](https://drive.google.com/file/d/1tR3R9Mf9thXBUszMo34Pmdli0K4savjp/view?usp=sharing).
