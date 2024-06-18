@@ -19,6 +19,8 @@ Conclusion: The research findings indicate that the expert encoder group can eff
 
 
 ## ExecTimePredictor
+
+
  
 To effectively predict the running time of code, we introduced the ExecTimePredictor. In the generation of
 efficient code, the running time of the code serves as a crucial metric for evaluating its efficiency. A short running
@@ -66,6 +68,26 @@ random deletion mimics non-executable code more closely, further ensuring ExecTi
 on such code.
 
 
+
+## CodeExecTimeDB
+CodeExecTimeDB are [here](https://drive.google.com/file/d/1tR3R9Mf9thXBUszMo34Pmdli0K4savjp/view?usp=sharing).
+
+
+
+## Fine-tuning ExecTimePredictor
+
+To develop the ExecTimePredictor, we fine-tuned the DeepSeek-Coder-v1.5 7B using the AdamW optimizer
+with a batch size of 32. The model was fine-tuned over four datasets, each for two epochs. After this process, we
+obtained the refined ExecTimePredictor. The fine-tuned ExecTimePredictor demonstrated accuracies of 8.50 µs, 8.11
+µs, 8.35 µs, and 8.21 µs on the CodeExecTimeDB-Ori, CodeExecTimeDB-Uni, CodeExecTimeDB-Loop&Rec, and
+CodeExecTimeDB-RandDel test datasets, respectively.
+
+During the fine-tuning and prediction phases with DeepSeek-Coder-v1.5 7B, we designed the following prompt,
+inspired by the chat template provided by DeepSeek, to guide the model in predicting the execution time of code:
+
+“### Code Solution:\n{Code}\n\n### Predict the running time of the provided code solution:”
+
+
 ## How to Use
 
 ### Implementation Train the model -> predict the generated code -> perform IO test on the generated code.
@@ -73,6 +95,9 @@ on such code.
 
 1. Extract the GEC dataset to the E_code folder and change the file name to GEC. 
 2. Run the train.py file. 
+
+
+
 
 #### Fast-running classification experiments: 
 
@@ -85,6 +110,8 @@ Set Command_line_parameters.task = 0 and set Command_line_parameters. heads = 8 
 Set Command_line_parameters.task = 1 to train the No-expert-E-code model.
 
 
+
+
 #### Extremely fast use of Time_Predictor source code: 
 1. Extract the GEC dataset to the E_code folder and change the file name to GEC. 
 2. Run the train.py file to train the model.
@@ -93,10 +120,11 @@ Set Command_line_parameters.task = 1 to train the No-expert-E-code model.
 4. Run Prediction_generation_code to automatically predict the code runtime.
 
 
+
+
 ## Model parameters
 All model parameters are [here](https://drive.google.com/drive/folders/18tg9mTBZ3E6bmpnoelMbYqMo_o3B76bX?usp=sharing).
 
 
 
-## CodeExecTimeDB
-CodeExecTimeDB are [here](https://drive.google.com/file/d/1tR3R9Mf9thXBUszMo34Pmdli0K4savjp/view?usp=sharing).
+
