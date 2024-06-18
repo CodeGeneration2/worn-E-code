@@ -5,7 +5,16 @@
 ![E-code模型图](https://github.com/CodeGeneration2/E-code/assets/95161813/e98eff5e-b891-4953-bb71-44aacbf39fa5)
 
 
+## abstract
+Context: With the waning of Moore's Law, the software industry is placing increasing importance on finding alternative solutions for continuous performance enhancement. The significance and research results of software performance optimization have been on the rise in recent years, especially with the advancement propelled by \textbf{L}arge \textbf{L}anguage \textbf{M}odel\textbf{s} (LLMs). However, traditional strategies for rectifying performance flaws have shown significant limitations at the competitive code efficiency optimization level, and research on this topic is surprisingly scarce.
 
+Objective: This study aims to address the research gap in this domain, offering practical solutions to the various challenges encountered. Specifically, we have overcome the constraints of traditional performance error rectification strategies and developed a Language Model (LM) tailored for the competitive code efficiency optimization realm.
+
+Method: We introduced E-code, an advanced program synthesis LM. Inspired by the recent success of expert LMs, we designed an innovative structure called the Expert Encoder Group. This structure employs multiple expert encoders to extract features tailored for different input types. We assessed the performance of E-code against other leading models on a competitive dataset and conducted in-depth ablation experiments.
+
+Results: Upon systematic evaluation, E-code achieved a 57% improvement in code efficiency, significantly outperforming other advanced models. In the ablation experiments, we further validated the significance of the expert encoder group and other components within E-code.
+
+Conclusion: The research findings indicate that the expert encoder group can effectively handle various inputs in efficiency optimization tasks, significantly enhancing the model's performance. In summary, this study paves new avenues for developing systems and methods to assist programmers in writing efficient code.
 
 
 ## How to Use
